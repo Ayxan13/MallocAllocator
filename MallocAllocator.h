@@ -3,7 +3,7 @@
  * March 7 2020
  *
  *
- * Simple allocator that uses malloc as it's memory source
+ * Simple allocator that uses malloc as its memory source
  *
  */
 
