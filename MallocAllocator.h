@@ -7,9 +7,10 @@
  * 
  */
 
-#pragma once // Won't hurt
 #ifndef MALLOC_ALLOCATOR_H
 #define MALLOC_ALLOCATOR_H
+#pragma once // Won't hurt https://stackoverflow.com/a/1144110/10147399
+
 
 #include <cstdlib>   // malloc/free
 #include <stdexcept> // bad_alloc
