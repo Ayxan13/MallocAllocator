@@ -22,11 +22,9 @@ struct MallocAllocator
         using value_type = T;
 
         MallocAllocator() noexcept = default;
-        MallocAllocator(const MallocAllocator&) noexcept = default;
         template<class U>
         MallocAllocator(const MallocAllocator<U>&) noexcept
         {}
-        ~MallocAllocator() noexcept = default;
 
         T* allocate(size_type const s, void const* = nullptr) const
         {
@@ -41,6 +39,20 @@ struct MallocAllocator
                 return temp;
         }
         void deallocate(T* p, size_type) const noexcept { std::free(p); }
+
+        template<class U>
+        bool operator==( MallocAllocator<U>& const)
+        {
+                return true;
+        }
+
+        template<class U>
+        bool operator!=(MallocAllocator<U>& const)
+        {
+                return false;
+        }
+
+        using propagate_on_container_move_assignment = std::true_type;
 };
 
 #endif // !MALLOC_ALLOCATOR_H
